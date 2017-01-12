@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="style.css">
+<style>
+.excited {
+
+  color: red;
+}
+
+.mellow {
+
+  color: blue;
+}
+
+</style>
+</head>
+<body>
+
+<div id="title">Quantum Survey</div>
+
+<div class="bodyContent">
+
+<p id= "surveyContent"></p>
+
+<a class="primaryLink" id = "next" href="#" onclick="nextElement();">Next</a>
+</div>
+
+<script>
+
+//onload randomly choose a set, and then randomly loop through that set, randomly assign css to each element, onclick Next go to next part of array
+var sets = [
+
+  ["Do you like cupcakes?", "Do you believe in God?", "Did you have a nice childhood?"],
+  ["Have you ever been to Iceland?", "Do you live in a house?", "Do heights scare you?"],
+  ["Are you older than thirty?", "Is winter your favorite season?", "Do millennials commonly have different political views than their elders?"]
+
+];
+
+var oneSet = [
+"Do you like cupcakes?", "Do you believe in God?", "Did you have a nice childhood?"
+];
+
+var myIndex = 1;
+
+var currentQuestion = 0;
+
+//pick a set
+var randomSet = sets[Math.floor(Math.random() * sets.length)];
+
+console.log(randomSet);
+
+
+
+//shuffle the set
+var shuffled = shuffle(randomSet);
+
+document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
+
+function shuffle(j) {
+  var currentIndex = j.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = j[currentIndex];
+    j[currentIndex] = j[randomIndex];
+    j[randomIndex] = temporaryValue;
+
+    //no idea!
+    // document.getElementById('surveyContent').innerHTML = j[0];
+//write a for loop here? ^
+
+    console.log(currentIndex);
+  }
+
+  return j;
+
+}
+
+console.log(shuffled[0]);
+
+// document.getElementById('surveyContent').innerHTML += shuffled[j];
+//nextElement();
+
+//bake list into HTML
+// for (var z = 0; z < shuffled.length; z++){
+//
+//   console.log([z]);
+//   document.getElementById('surveyContent').innerHTML += [z];
+// }
+
+//need to isolate one element in set
+
+
+// console.log(shuffled);
+
+function nextElement(){
+  currentQuestion++;
+  if(currentQuestion < randomSet.length){
+    document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
+  }
+  else {
+    document.getElementById('surveyContent').innerHTML = "Finished";
+  }
+
+}
+
+// for (var j = 0; j < randomSet.length; j++) {
+// document.getElementById('surveyContent').innerHTML += randomSet[j];
+// }
+
+// function nextElement() {
+//   print.innerHTML = oneSet[shuffled++ % oneSet.length]
+// }
+
+
+//looping through with a button
+// button on click array.next
+
+</script>
+</body>
+</html>
