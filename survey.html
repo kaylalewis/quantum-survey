@@ -19,6 +19,11 @@ display: block;
 
 }
 
+#instructions {
+
+  display: none;
+}
+
 #survey {
 
 display: none;
@@ -45,10 +50,17 @@ display: none;
 <div class="bodyContent">
 
 <div id = "permission">
+  <p>Do we have permission to record this session?</p>
+  <div class="secondaryButton inlineButtons"><a href="index.html">No, end session</a></div>
+  <div class="primaryButton inlineButtons" id="record" onclick="showInstructions();"><a href="#">Yes, begin recording</a></div>
+</div>
+
+
+<div id = "instructions">
   <p>From here on out, just answer Yes or No.<br>
   Click ‘Next’ when you are finished.<br>
   There are twenty questions.</p>
-  <div class="primaryLink"><a href = "#" onclick="showSurvey();" id="record">Begin survey...</a></div>
+  <div class="primaryLink"><a href = "#" onclick="showSurvey();">Begin survey...</a></div>
 </div>
 
 <div id = "survey">
@@ -153,10 +165,19 @@ function nextElement(){
 
 }
 
+
+function showInstructions(){
+
+document.getElementById('instructions').style.display = "block";
+document.getElementById('permission').style.display = "none";
+
+}
+
+
 function showSurvey(){
 
 document.getElementById('survey').style.display = "block";
-document.getElementById('permission').style.display = "none";
+document.getElementById('instructions').style.display = "none";
 
 }
 
