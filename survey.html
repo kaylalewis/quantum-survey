@@ -1,6 +1,7 @@
 <!DOCTYPE html>
+<html>
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
 .excited {
 
@@ -26,7 +27,7 @@ display: none;
 
 #finish {
 
-  display:none;
+  display: none;
 }
 
 </style>
@@ -39,7 +40,7 @@ display: none;
 </head>
 <body>
 
-<div id="title">Quantum Survey</div>
+<div id="title"><a href="index.html" id="titleLink">Quantum Survey</a></div>
 
 <div class="bodyContent">
 
@@ -50,19 +51,19 @@ display: none;
   <div class="primaryLink"><a href = "#" onclick="showSurvey();" id="record">Begin survey...</a></div>
 </div>
 
-<a class="button disabled one" id="pause">Pause</a>
-<a class="button disabled one" id="play">Play</a>
-<a class="button disabled one" id="download">Download</a>
-
-
 <div id = "survey">
 <p id= "surveyContent"></p>
-
 <a class="primaryLink" id = "next" href="#" onclick="nextElement();">Next</a>
 </div>
 
-<a class="primaryLink" id="finish download">Finish Survey</a>
+<div id="finish">
+<div class="primaryLink"><a href = "#" id="download">Stop Audio and Download Recording</a></div>
+<div class="primaryLink"><a href = "#" id="pause">Stop Audio and DO NOT Download</a></div>
 
+<!-- <a class="button disabled one" id="pause">Pause</a>
+<a class="button disabled one" id="play">Play</a>
+<a class="button disabled one" id="download">Download</a> -->
+</div>
 </div>
 
 <script>
@@ -145,7 +146,7 @@ function nextElement(){
     document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
   }
   else {
-    document.getElementById('surveyContent').innerHTML = "Finished";
+    document.getElementById('survey').innerHTML = "Finished";
     document.getElementById('finish').style.display = "block";
     // document.getElementById('surveyContent').style.display = "none";
   }
