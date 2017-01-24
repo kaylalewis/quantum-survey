@@ -6,8 +6,8 @@ function sin() {
   var linewidth=0.02;
 
 
-  var _w=400;
-  var _h=400;
+  var _w=300;
+  var _h=300;
   var aspect = _w/ _h;
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera( 65,  _w/_h, 0.1, 400 );
@@ -16,7 +16,7 @@ function sin() {
   // renderer.setClearColor(new THREE.Color(0x000000, 0));
   renderer.setSize( _w, _h );
 
-document.getElementById("survey").appendChild( renderer.domElement);
+document.getElementById("spinner").appendChild( renderer.domElement);
 
 
   var group = new THREE.Object3D();

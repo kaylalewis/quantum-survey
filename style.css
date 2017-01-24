@@ -17,6 +17,10 @@ p {
   font-weight: 300;
 }
 
+#surveyContent{
+margin-bottom: -20px;
+
+}
 h2 {
 
   font-weight: 400;
@@ -75,6 +79,13 @@ transform: translate(-50%, -50%);
   margin-right: -50%;
   transform: translate(-50%, -50%);
 
+}
+
+#finishedWords {
+
+  text-align: center;
+  font-size: 24px;
+  font-weight: 300;
 }
 
 #nextArrow {
@@ -148,7 +159,7 @@ font-size: 18px;
   margin: 0;
   margin-top: 200px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);

@@ -78,7 +78,8 @@ display: none;
 
 <div id = "survey">
 <p id= "surveyContent"></p>
-<a class="primaryLink" id = "next" href="#" onclick="nextElement();">
+<div id="spinner"></div>
+<a class="primaryLink" id ="next" href="#" onclick="nextElement();">
 
   <svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
 
@@ -87,8 +88,8 @@ display: none;
 </div>
 
 <div id="finish">
-<div class="primaryButton inlineButtons"><a href = "#" id="download">Stop Audio and Download Recording</a></div>
 <div class="secondaryButton inlineButtons"><a href = "#" id="pause">Stop Audio and DO NOT Download</a></div>
+<div class="primaryButton inlineButtons"><a href = "#" id="download">Stop Audio and Download Recording</a></div>
 </div>
 </div>
 
@@ -173,6 +174,7 @@ function nextElement(){
   }
   else {
     document.getElementById('survey').innerHTML = "You're done!";
+    document.getElementById('survey').setAttribute('id', 'finishedWords');
     document.getElementById('finish').style.display = "block";
 
     // document.getElementById('surveyContent').style.display = "none";
