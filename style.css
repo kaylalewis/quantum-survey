@@ -1,7 +1,34 @@
 body {
 
-  font-family: "Roboto";
+font-family: 'Open Sans', sans-serif;
+font-size: 18px;
+background: #070022;
+
 }
+
+* {
+
+  color: #E4F8CE;
+}
+
+p {
+
+  font-size: 24px;
+  font-weight: 300;
+}
+
+h2 {
+
+  font-weight: 400;
+}
+
+h3 {
+
+  font-weight: 300;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
 
 .bodyContent {
 margin: 0;
@@ -11,11 +38,31 @@ left: 50%;
 margin-right: -50%;
 transform: translate(-50%, -50%);
 
+
+}
+
+#survey {
+
+  margin: 0;
+  margin-top: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.buttons {
+  text-align: center;
 }
 
 #titleLink {
 
   text-decoration: none;
+  font-weight: 300;
+  font-size: 18px;
 }
 
 .move{
@@ -27,6 +74,12 @@ transform: translate(-50%, -50%);
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+
+}
+
+#nextArrow {
+
+  width: 7%;
 }
 
 div {
@@ -38,6 +91,7 @@ div {
 
   margin: 20px;
   font-size: 24px;
+  color: #E4F8CE;
 }
 
 
@@ -48,22 +102,30 @@ div {
 .primaryButton {
 
 border-radius: 4px;
-background: black;
+background: #E4F8CE;
 padding: 12px;
+color: #070022;
+margin-top: 30px;
+margin-right: 10px;
+margin-left: 10px;
 
 }
 
 .primaryButton > a{
 
 text-decoration: none;
-color: white;
+color: #070022;
+
 
 }
 
 .secondaryButton {
-
+margin-top: 30px;
+margin-right: 10px;
+margin-left: 10px;
+border: 1px solid #E4F8CE;
 border-radius: 4px;
-background: grey;
+background: #070022;
 padding: 12px;
 
 }
@@ -71,13 +133,23 @@ padding: 12px;
 .secondaryButton > a{
 
 text-decoration: none;
-color: black;
 
 }
 
 
 .primaryLink > a {
 
-color: black;
+font-size: 18px;
 
+}
+
+#next {
+
+  margin: 0;
+  margin-top: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
