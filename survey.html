@@ -53,7 +53,7 @@ display: none;
 </head>
 <body>
 
-<div id="title"><a href="index.html" id="titleLink">Quantum Survey</a></div>
+<div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
 
 <div class="bodyContent">
 
@@ -267,20 +267,6 @@ function shuffle(j) {
 
 console.log(shuffled[0]);
 
-// document.getElementById('surveyContent').innerHTML += shuffled[j];
-//nextElement();
-
-//bake list into HTML
-// for (var z = 0; z < shuffled.length; z++){
-//
-//   console.log([z]);
-//   document.getElementById('surveyContent').innerHTML += [z];
-// }
-
-//need to isolate one element in set
-
-
-// console.log(shuffled);
 
 function nextElement(){
   currentQuestion++;
@@ -291,8 +277,6 @@ function nextElement(){
     document.getElementById('survey').innerHTML = "You're done!";
     document.getElementById('survey').setAttribute('id', 'finishedWords');
     document.getElementById('finish').style.display = "block";
-
-    // document.getElementById('surveyContent').style.display = "none";
   }
 
 }
@@ -318,21 +302,7 @@ document.getElementById('instructions').style.display = "none";
 // $("surveyContent").fadeIn("slow");
 sin();
 
-}
-
-// $("instructions").fadeOut("slow");
-
-// for (var j = 0; j < randomSet.length; j++) {
-// document.getElementById('surveyContent').innerHTML += randomSet[j];
-// }
-
-// function nextElement() {
-//   print.innerHTML = oneSet[shuffled++ % oneSet.length]
-// }
-
-
-//looping through with a button
-// button on click array.next
+};
 
 
 

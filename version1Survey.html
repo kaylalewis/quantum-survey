@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+.excited {
+
+  color: red;
+}
+
+.mellow {
+
+  color: blue;
+}
+
+#permission {
+
+display: block;
+
+}
+
+#instructions {
+
+  display: none;
+}
+
+#survey {
+
+display: none;
+
+}
+
+#survey, #permission{
+
+  width: 450px;
+}
+
+#finish {
+
+  display: none;
+}
+
+</style>
+
+  <script src="src/recorder.js"></script>
+  <script src="src/Fr.voice.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/three.min.js"></script>
+  <script src="js/sin.js"></script>
+
+</head>
+<body>
+
+<div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
+
+<div class="bodyContent">
+
+<div id = "permission">
+  <h3>Do we have permission to record this session?</h3>
+  <p>The microphone will remain on until you choose to turn it off at the end of the survey.</p>
+  <div class="buttons">
+  <div class="secondaryButton inlineButtons"><a href="index.html">No, end session</a></div>
+  <div class="primaryButton inlineButtons" id="record" onclick="showInstructions();"><a href="#">Yes, begin recording</a></div>
+</div>
+</div>
+
+
+<div id = "instructions">
+  <p>From here on out, say the answer "yes" or "no" for each question.<br>
+  Click ‘Next’ when you are finished answering.<br>
+  There are twenty questions.</p>
+<div class="buttons">
+  <div class="primaryButton inlineButtons"><a href = "#" onclick="showSurvey();">Begin Survey</a></div>
+</div>
+</div>
+
+<div id = "survey">
+<p id= "surveyContent">Click next to begin</p>
+<div id="spinner"></div>
+<a class="primaryLink" id ="next" href="#" onclick="nextElement();">
+
+  <svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
+
+</a>
+
+</div>
+
+<div id="finish">
+<div class="secondaryButton inlineButtons"><a href = "#" id="pause">Stop Audio and DO NOT Download</a></div>
+<div class="primaryButton inlineButtons"><a href = "#" id="download">Stop Audio and Download Recording</a></div>
+</div>
+</div>
+
+<script>
+
+//onload randomly choose a set, and then randomly loop through that set, randomly assign css to each element, onclick Next go to next part of array
+var set =
+["Do you like cupcakes?",
+"Is blue your favorite colour?",
+"Were you hyper as a child?",
+"Do you believe in God?",
+"Are you dreaming right now?",
+"Is the media biased?",
+"Will you make an effort to vote in the next election?",
+"Do you believe in life after death?",
+"Do you have ten fingers?",
+"Do heights scare you?",
+"Are you free?",
+"Do you eat red meat?",
+"Do you identify yourself as left-wing?",
+"Do you smoke?","Do you look forward to winter every year?",
+"Do you live alone?",
+"Are you a generous person?",
+"Do you feel satisfied with your life right now?",
+"Do you practice yoga?",
+"Do you have a chinese friend?",
+"Do you like black tea?",
+"Do you feel younger than you are?",
+"Are your eyes green?",
+"Are you usually late to social events?",
+"Do you sleepwalk?",
+"If you could retire from your job this week, would you do it?",
+"Do you usually hold your fork in your right hand?",
+"Do you like Picasso?",
+"Do you play the violin?",
+"Do you enjoy playing chess?",
+"Do want to have (more) children?",
+"Have you ever tried show boarding?",
+"Do you always know when you love someone?",
+"Do you have different political views from your grandfather?",
+"Have you ever needed to hire a lawyer?",
+"Do you own a house?",
+"Are you a lesbian?",
+"Do you resent any particular ethnic group?",
+"Have you ever been to war?",
+"Do you have a strong personality?",
+"Do you regularly drink coffee?"];
+
+
+var myIndex = 1;
+
+var currentQuestion = 1;
+
+//pick a set
+// var randomSet = sets[Math.floor(Math.random() * sets.length)];
+//shuffle the set
+// var shuffled = shuffle(set);
+//
+// document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
+//
+// function shuffle(j) {
+//   var currentIndex = j.length, temporaryValue, randomIndex;
+//
+//   // While there remain elements to shuffle...
+//   while (0 !== currentIndex) {
+//
+//     // Pick a remaining element...
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex -= 1;
+//
+//     // And swap it with the current element.
+//     temporaryValue = j[currentIndex];
+//     j[currentIndex] = j[randomIndex];
+//     j[randomIndex] = temporaryValue;
+//
+//         console.log(currentIndex);
+//       }
+//
+//       return j;
+//
+//     }
+
+
+
+// function nextElement(){
+//
+// for (var j = 0; j <= set.length; j++){
+//   if(j == set.length)
+//   {
+//     document.getElementById('survey').innerHTML = "You're done!";
+//     document.getElementById('survey').setAttribute('id', 'finishedWords');
+//     document.getElementById('finish').style.display = "block";
+//
+//   }
+//   else {
+//
+// document.getElementById('surveyContent').innerHTML = j++;
+//   }
+//
+// }}
+
+function nextElement(){
+
+if(currentQuestion == set.length){
+
+  currentQuestion = 0;
+  document.getElementById('survey').innerHTML = "You're done!";
+  document.getElementById('survey').setAttribute('id', 'finishedWords');
+  document.getElementById('finish').style.display = "block";
+}
+
+$('#surveyContent').html(set[currentQuestion]);
+currentQuestion++;
+
+}
+
+// function nextElement(){
+//   currentQuestion++;
+//   if(currentQuestion < randomSet.length){
+//     document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
+//   }
+//   else {
+//     document.getElementById('survey').innerHTML = "You're done!";
+//     document.getElementById('survey').setAttribute('id', 'finishedWords');
+//     document.getElementById('finish').style.display = "block";
+//   }
+//
+// }
+
+
+
+
+function showInstructions(){
+
+document.getElementById('instructions').style.display = "block";
+document.getElementById('permission').style.display = "none";
+
+
+}
+
+
+function showSurvey(){
+
+document.getElementById('survey').style.display = "block";
+document.getElementById('instructions').style.display = "none";
+sin();
+
+}
+
+
+
+</script>
+</body>
+</html>
