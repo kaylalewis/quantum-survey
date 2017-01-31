@@ -77,7 +77,7 @@ display: none;
 </div>
 
 <div id = "survey">
-<p id= "surveyContent">Click next to begin</p>
+<p id= "surveyContent"></p>
 <div id="spinner"></div>
 <a class="primaryLink" id ="next" href="#" onclick="nextElement();">
 
@@ -190,6 +190,8 @@ var currentQuestion = 1;
 //   }
 //
 // }}
+
+document.getElementById('surveyContent').innerHTML = set[0];
 
 function nextElement(){
 
