@@ -3,45 +3,6 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
-<style>
-.excited {
-
-  color: red;
-}
-
-.mellow {
-
-  color: blue;
-}
-
-#permission {
-
-display: block;
-
-}
-
-#instructions {
-
-  display: none;
-}
-
-#survey {
-
-display: none;
-
-}
-
-#survey, #permission{
-
-  width: 450px;
-}
-
-#finish {
-
-  display: none;
-}
-
-</style>
 
   <script src="src/recorder.js"></script>
   <script src="src/Fr.voice.js"></script>
@@ -53,24 +14,28 @@ display: none;
 </head>
 <body>
 
+<div id="top">
 <div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
+<div><a href = "#" onclick="stopRecording();" id="stopButton" class="secondaryButton">Stop Audio</a></div>
+</div>
 
 <div class="bodyContent">
 
 <div id = "permission">
   <h3>Do we have permission to record this session?</h3>
-  <p>The microphone will remain on until you choose to turn it off at the end of the survey.</p>
+  <p>The microphone will remain on until the survey ends, or you may choose to turn it off at any time.</p>
   <div class="buttons">
-  <div class="secondaryButton inlineButtons"><a href="index.html">No, end session</a></div>
-  <div class="primaryButton inlineButtons" id="record" onclick="showInstructions();"><a href="#">Yes, begin recording</a></div>
+  <div><a href="index.html" class="secondaryButton inlineButtons">No, end session</a></div>
+  <div><a href="#" class="primaryButton inlineButtons" id="record" onclick="showInstructions();">Yes, begin recording</a></div>
 </div>
 </div>
 
 
 <div id = "instructions">
-  <p>From here on out, say the answer "yes" or "no" for each question.<br>
-  Click ‘Next’ when you are finished answering.<br>
-  There are twenty questions.</p>
+  <p>See the browser prompt at the top of the page to turn on your mic? Please click "Allow" for that, too!</p>
+  <p>Okay, from here on out, say the answer "yes" or "no" for each question.<br>
+  Click the "next" arrow when you are finished answering.<br>
+  There are 25 questions.</p>
 <div class="buttons">
   <div class="primaryButton inlineButtons"><a href = "#" onclick="showSurvey();">Begin Survey</a></div>
 </div>
@@ -294,12 +259,8 @@ document.getElementById('permission').style.display = "none";
 
 function showSurvey(){
 
-// document.getElementById('instructions').style.display = "block";
-// document.getElementById('permission').style.display = "none";
 document.getElementById('survey').style.display = "block";
 document.getElementById('instructions').style.display = "none";
-// $("instructions").fadeOut("slow");
-// $("surveyContent").fadeIn("slow");
 sin();
 
 };

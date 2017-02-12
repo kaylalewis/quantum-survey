@@ -3,50 +3,6 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
-<style>
-.excited {
-
-  color: red;
-}
-
-.mellow {
-
-  color: blue;
-}
-
-#permission {
-
-display: block;
-
-}
-
-#instructions {
-
-  display: none;
-}
-
-#survey {
-
-display: none;
-
-}
-
-#number {
-
-  display:none;
-}
-
-#survey, #permission{
-
-  width: 450px;
-}
-
-#finish {
-
-  display: none;
-}
-
-</style>
 
   <script src="src/recorder.js"></script>
   <script src="src/Fr.voice.js"></script>
@@ -64,7 +20,7 @@ display: none;
 
 <div id = "permission">
   <h3>Do we have permission to record this session?</h3>
-  <p>The microphone will remain on until you choose to turn it off at the end of the survey.</p>
+  <p>The microphone will remain on until the survey ends, or you may choose to turn it off at any time.</p>
   <div class="buttons">
   <div class="secondaryButton inlineButtons"><a href="index.html">No, end session</a></div>
   <div class="primaryButton inlineButtons" id="record" onclick="showInstructions();"><a href="#">Yes, begin recording</a></div>
@@ -73,9 +29,10 @@ display: none;
 
 
 <div id = "instructions">
-  <p>From here on out, say the answer "yes" or "no" for each question.<br>
-  Click ‘Next’ when you are finished answering.<br>
-  There are twenty questions.</p>
+  <p>See the browser prompt at the top of the page to turn on your mic? Please click "Allow" for that, too!</p>
+  <p>Okay, from here on out, say the answer "yes" or "no" for each question.<br>
+  Click the "next" arrow when you are finished answering.<br>
+  There are 25 questions.</p>
 <div class="buttons">
   <div class="primaryButton inlineButtons"><a href = "#" onclick="showNumber();">Begin Survey</a></div>
 </div>
@@ -85,19 +42,19 @@ display: none;
   <p>Please state the number below.</p>
   <h1>2</h1>
 <div class="buttons">
-  <div class="primaryButton inlineButtons"><a href = "#" onclick="showSurvey();" class="primaryLink" id="next"></a></div>
-</div>
+  <a href = "#" onclick="showSurvey();" class="primaryLink" id="next">
+<svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
+  </a></div>
 </div>
 
 <div id = "survey">
+<div><a href = "#" onclick="stopRecording();" id="stopButton">Stop Audio</a></div>
 <p id= "surveyContent"></p>
 <div id="spinner"></div>
 <a class="primaryLink" id ="next" href="#" onclick="nextElement();">
-
   <svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
 
 </a>
-
 </div>
 
 <div id="finish">
@@ -156,54 +113,6 @@ var myIndex = 1;
 
 var currentQuestion = 1;
 
-//pick a set
-// var randomSet = sets[Math.floor(Math.random() * sets.length)];
-//shuffle the set
-// var shuffled = shuffle(set);
-//
-// document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
-//
-// function shuffle(j) {
-//   var currentIndex = j.length, temporaryValue, randomIndex;
-//
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-//
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-//
-//     // And swap it with the current element.
-//     temporaryValue = j[currentIndex];
-//     j[currentIndex] = j[randomIndex];
-//     j[randomIndex] = temporaryValue;
-//
-//         console.log(currentIndex);
-//       }
-//
-//       return j;
-//
-//     }
-
-
-
-// function nextElement(){
-//
-// for (var j = 0; j <= set.length; j++){
-//   if(j == set.length)
-//   {
-//     document.getElementById('survey').innerHTML = "You're done!";
-//     document.getElementById('survey').setAttribute('id', 'finishedWords');
-//     document.getElementById('finish').style.display = "block";
-//
-//   }
-//   else {
-//
-// document.getElementById('surveyContent').innerHTML = j++;
-//   }
-//
-// }}
-
 document.getElementById('surveyContent').innerHTML = set[0];
 
 function nextElement(){
@@ -220,22 +129,6 @@ $('#surveyContent').html(set[currentQuestion]);
 currentQuestion++;
 
 }
-
-// function nextElement(){
-//   currentQuestion++;
-//   if(currentQuestion < randomSet.length){
-//     document.getElementById('surveyContent').innerHTML = shuffled[currentQuestion];
-//   }
-//   else {
-//     document.getElementById('survey').innerHTML = "You're done!";
-//     document.getElementById('survey').setAttribute('id', 'finishedWords');
-//     document.getElementById('finish').style.display = "block";
-//   }
-//
-// }
-
-
-
 
 function showInstructions(){
 
@@ -260,7 +153,7 @@ document.getElementById('survey').style.display = "block";
 document.getElementById('number').style.display = "none";
 sin();
 
-}
+};
 
 
 

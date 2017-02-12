@@ -55,6 +55,7 @@ transform: translate(-50%, -50%);
   margin-right: -50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  display: none;
 }
 
 
@@ -98,13 +99,22 @@ div {
   margin-bottom: 25px;
 }
 
-#title {
+#top {
 
-  margin: 20px;
-  font-size: 24px;
+
+}
+
+#title {
+  margin:0px 20px;
+  float: left;
   color: #E4F8CE;
 }
 
+#stopButton {
+float: right;
+margin: 0px 20px;
+
+}
 
 .inlineButtons {
 
@@ -122,15 +132,17 @@ margin-left: 10px;
 
 }
 
-.primaryButton > a{
+.primaryButton{
 
 text-decoration: none;
 color: #070022;
+display: inline-block;
 
 
 }
 
 .secondaryButton {
+display: inline-block;
 margin-top: 30px;
 margin-right: 10px;
 margin-left: 10px;
@@ -138,6 +150,7 @@ border: 1px solid #E4F8CE;
 border-radius: 4px;
 background: #070022;
 padding: 12px;
+text-decoration: none;
 
 }
 
@@ -163,4 +176,46 @@ font-size: 18px;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+
+.excited {
+
+  color: red;
+}
+
+.mellow {
+
+  color: blue;
+}
+
+#permission {
+
+display: block;
+
+}
+
+#instructions {
+
+  display: none;
+}
+
+#number {
+
+  display:none;
+}
+
+#survey{
+
+  width: 450px;
+}
+
+#permission, #instructions{
+
+  width: 600px;
+}
+
+#finish {
+
+  display: none;
 }

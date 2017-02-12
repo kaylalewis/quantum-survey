@@ -5,6 +5,17 @@ function restore(){
   Fr.voice.stop();
 }
 
+function stopRecording() {
+   recorder && recorder.stop();
+   button.disabled = false;
+   __log('Stopped recording.');
+  //
+  //  // create WAV download link using audio data blob
+  //  createDownloadLink();
+
+   recorder.clear();
+ }
+
 function makeWaveform(){
   /**
    * The Waveform canvas
