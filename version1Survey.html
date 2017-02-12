@@ -31,6 +31,11 @@ display: none;
 
 }
 
+#number {
+
+  display:none;
+}
+
 #survey, #permission{
 
   width: 450px;
@@ -72,7 +77,15 @@ display: none;
   Click ‘Next’ when you are finished answering.<br>
   There are twenty questions.</p>
 <div class="buttons">
-  <div class="primaryButton inlineButtons"><a href = "#" onclick="showSurvey();">Begin Survey</a></div>
+  <div class="primaryButton inlineButtons"><a href = "#" onclick="showNumber();">Begin Survey</a></div>
+</div>
+</div>
+
+<div id = "number">
+  <p>Please state the number below.</p>
+  <h1>2</h1>
+<div class="buttons">
+  <div class="primaryButton inlineButtons"><a href = "#" onclick="showSurvey();" class="primaryLink" id="next"></a></div>
 </div>
 </div>
 
@@ -232,11 +245,19 @@ document.getElementById('permission').style.display = "none";
 
 }
 
+function showNumber(){
+
+document.getElementById('number').style.display = "block";
+document.getElementById('instructions').style.display = "none";
+sin();
+
+}
+
 
 function showSurvey(){
 
 document.getElementById('survey').style.display = "block";
-document.getElementById('instructions').style.display = "none";
+document.getElementById('number').style.display = "none";
 sin();
 
 }
