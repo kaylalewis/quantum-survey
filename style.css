@@ -45,7 +45,7 @@ transform: translate(-50%, -50%);
 
 }
 
-#survey {
+#survey{
 
   margin: 0;
   margin-top: 20px;
@@ -58,6 +58,10 @@ transform: translate(-50%, -50%);
   display: none;
 }
 
+#number {
+
+text-align: center;
+}
 
 .buttons {
   text-align: center;
@@ -102,6 +106,13 @@ div {
 #top {
 
 
+}
+
+#intro {
+
+
+font-size: 18px;
+font-weight: 300;
 }
 
 #title {
@@ -164,6 +175,9 @@ text-decoration: none;
 .primaryLink > a {
 
 font-size: 18px;
+text-decoration: none;
+border-bottom: 1px solid #E4F8CE;
+padding-bottom: 3px;
 
 }
 
@@ -218,4 +232,8 @@ display: block;
 #finish {
 
   display: none;
+}
+
+.smallinst {
+  font-size: 18px;
 }

@@ -14,27 +14,28 @@
 </head>
 <body>
 
-<div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
+  <div id="top">
+  <div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
+  <div><a href = "#" onclick="stopRecording();" id="stopButton" class="secondaryButton">Stop Audio</a></div>
+  </div>
 
 <div class="bodyContent">
 
-<div id = "permission">
-  <h3>Do we have permission to record this session?</h3>
-  <p>The microphone will remain on until the survey ends, or you may choose to turn it off at any time.</p>
-  <div class="buttons">
-  <div class="secondaryButton inlineButtons"><a href="index.html">No, end session</a></div>
-  <div class="primaryButton inlineButtons" id="record" onclick="showInstructions();"><a href="#">Yes, begin recording</a></div>
-</div>
-</div>
+  <div id = "permission">
+    <h3>Do we have permission to record this session?</h3>
+    <p>The microphone will remain on until the survey ends, or you may choose to turn it off at any time.</p>
+    <div class="buttons">
+      <a href="index.html" class="secondaryButton inlineButtons">No, end session</a>
+    <a href="#" class="primaryButton inlineButtons" id="record" onclick="showInstructions();">Yes, begin recording</a>
+  </div>
+  </div>
 
 
 <div id = "instructions">
-  <p>See the browser prompt at the top of the page to turn on your mic? Please click "Allow" for that, too!</p>
-  <p>Okay, from here on out, say the answer "yes" or "no" for each question.<br>
-  Click the "next" arrow when you are finished answering.<br>
-  There are 25 questions.</p>
+  <h3>See the browser prompt at the top of the page to turn on your mic? Please click "Allow."</h3>
+  <p>From here on out, say the answer "yes" or "no" for each question. Click the "next" arrow when you are finished answering. There are 25 questions.</p>
 <div class="buttons">
-  <div class="primaryButton inlineButtons"><a href = "#" onclick="showNumber();">Begin Survey</a></div>
+<a href = "#" class="primaryButton inlineButtons" onclick="showNumber();">Begin Survey</a>
 </div>
 </div>
 
@@ -48,7 +49,6 @@
 </div>
 
 <div id = "survey">
-<div><a href = "#" onclick="stopRecording();" id="stopButton">Stop Audio</a></div>
 <p id= "surveyContent"></p>
 <div id="spinner"></div>
 <a class="primaryLink" id ="next" href="#" onclick="nextElement();">
@@ -68,26 +68,20 @@
 //onload randomly choose a set, and then randomly loop through that set, randomly assign css to each element, onclick Next go to next part of array
 var set =
 ["Do you like cupcakes?",
-"Is blue your favorite colour?",
-"Were you hyper as a child?",
-"Do you believe in God?",
+"Is blue your favorite color?",
 "Are you dreaming right now?",
-"Is the media biased?",
 "Will you make an effort to vote in the next election?",
 "Do you believe in life after death?",
 "Do you have ten fingers?",
 "Do heights scare you?",
-"Are you free?",
-"Do you eat red meat?",
 "Do you identify yourself as left-wing?",
-"Do you smoke?","Do you look forward to winter every year?",
+"Do you smoke?",
+"Do you look forward to winter every year?",
 "Do you live alone?",
 "Are you a generous person?",
 "Do you feel satisfied with your life right now?",
 "Do you practice yoga?",
 "Do you have a chinese friend?",
-"Do you like black tea?",
-"Do you feel younger than you are?",
 "Are your eyes green?",
 "Are you usually late to social events?",
 "Do you sleepwalk?",
@@ -96,16 +90,9 @@ var set =
 "Do you like Picasso?",
 "Do you play the violin?",
 "Do you enjoy playing chess?",
-"Do want to have (more) children?",
-"Have you ever tried show boarding?",
-"Do you always know when you love someone?",
-"Do you have different political views from your grandfather?",
-"Have you ever needed to hire a lawyer?",
-"Do you own a house?",
 "Are you a lesbian?",
 "Do you resent any particular ethnic group?",
 "Have you ever been to war?",
-"Do you have a strong personality?",
 "Do you regularly drink coffee?"];
 
 
@@ -142,7 +129,6 @@ function showNumber(){
 
 document.getElementById('number').style.display = "block";
 document.getElementById('instructions').style.display = "none";
-sin();
 
 }
 
