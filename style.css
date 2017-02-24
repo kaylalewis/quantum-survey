@@ -69,6 +69,7 @@ text-align: center;
 
 #titleLink {
 
+
   text-decoration: none;
   font-weight: 300;
   font-size: 18px;
@@ -103,10 +104,6 @@ div {
   margin-bottom: 25px;
 }
 
-#top {
-
-
-}
 
 #intro {
 
@@ -115,15 +112,32 @@ font-size: 18px;
 font-weight: 300;
 }
 
+#top {
+
+margin:20px 20px;
+
+}
+
 #title {
-  margin:0px 20px;
+  display: inline-block;
   float: left;
   color: #E4F8CE;
+
 }
 
 #stopButton {
+display:none;
 float: right;
-margin: 0px 20px;
+
+
+}
+
+.secondaryButton2 {
+border: 1px solid #E4F8CE;
+border-radius: 4px;
+background: #070022;
+padding: 12px;
+text-decoration: none;
 
 }
 
@@ -164,6 +178,7 @@ padding: 12px;
 text-decoration: none;
 
 }
+
 
 .secondaryButton > a{
 
@@ -236,4 +251,33 @@ display: block;
 
 .smallinst {
   font-size: 18px;
+}
+
+/* modal */
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+.modalbuttons {
+  margin-left: 50%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #070022;
+    margin: 20% auto; /* 15% from the top and centered */
+    padding: 20px 20px 20px 40px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
 }

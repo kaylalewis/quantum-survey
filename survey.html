@@ -16,7 +16,7 @@
 
 <div id="top">
 <div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
-<div><a href = "#" onclick="stopRecording();" id="stopButton" class="secondaryButton">Stop Audio</a></div>
+<div><a href = "#" onclick="stopRecording();" id="stopButton" id="pause">Pause</a></div>
 </div>
 
 <div class="bodyContent">
@@ -51,9 +51,23 @@
 </div>
 
 <div id="finish">
-<div class="secondaryButton inlineButtons"><a href = "#" id="pause">Stop Audio and DO NOT Download</a></div>
-<div class="primaryButton inlineButtons"><a href = "#" id="download">Stop Audio and Download Recording</a></div>
+<a href = "#" id="pause" class="secondaryButton inlineButtons" onclick="modal()">Cancel</a>
+<a href = "#" id="download" class="primaryButton inlineButtons" onclick="showEmail()">Download Recording</a>
 </div>
+</div>
+
+<!-- <button onclick="modal()">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <p>Are you sure you want to stop recording without saving?</p>
+    <div class="modalbuttons"><a href = "#" class="secondaryButton inlineButtons" onclick="cancelModal()">No, go back</a>
+    <a href = "index.html" class="primaryButton inlineButtons">Yes, leave page</a></div>
+  </div>
+
 </div>
 
 <script>
@@ -250,6 +264,7 @@ function showInstructions(){
 
 document.getElementById('instructions').style.display = "block";
 document.getElementById('permission').style.display = "none";
+document.getElementById('stopButton').style.display = "block";
 
 
 }
@@ -261,7 +276,24 @@ document.getElementById('survey').style.display = "block";
 document.getElementById('instructions').style.display = "none";
 sin();
 
+}
+
+function modal() {
+
+document.getElementById('myModal').style.display = "block";
+document.getElementById('background').style.display = "block";
+
+}
+
+function showEmail() {
+
+
 };
+
+function cancelModal() {
+  document.getElementById('myModal').style.display = "none";
+  document.getElementById('background').style.display = "none";
+}
 
 
 
