@@ -11,57 +11,85 @@
   <script src="js/three.min.js"></script>
   <script src="js/sin.js"></script>
 
+  <!-- <script>
+  $(function(){
+
+    $("#includedContent").load("body2.html");
+  });
+  </script> -->
+
 </head>
 <body>
 
-  <div id="top">
-  <div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
-  <div><a href = "#" onclick="stopRecording();" id="stopButton" class="secondaryButton">Stop Audio</a></div>
-  </div>
+<!-- <div id="includedContent"></div> -->
 
+<div id="top">
+<div id="title"><a href="index.html" id="titleLink">Yes or No?</a></div>
+</div>
 <div class="bodyContent">
 
-  <div id = "permission">
-    <h3>Do we have permission to record this session?</h3>
-    <p>The microphone will remain on until the survey ends, or you may choose to turn it off at any time.</p>
-    <div class="buttons">
-      <a href="index.html" class="secondaryButton inlineButtons">No, end session</a>
-    <a href="#" class="primaryButton inlineButtons" id="record" onclick="showInstructions();">Yes, begin recording</a>
-  </div>
-  </div>
+
+<div id = "permission">
+<h3>Do we have permission to record this session?</h3>
+<p>The microphone will remain on until the survey ends, or you exit the site.</p>
+<div class="buttons">
+  <a href="index.html" class="secondaryButton inlineButtons">No, end session</a>
+<a href="#" class="primaryButton inlineButtons" id="record" onclick="showInstructions();">Yes, begin recording</a>
+</div>
+</div>
 
 
 <div id = "instructions">
-  <h3>See the browser prompt at the top of the page to turn on your mic? Please click "Allow."</h3>
-  <p>From here on out, say the answer "yes" or "no" for each question. Click the "next" arrow when you are finished answering. There are 25 questions.</p>
+<h3>If you see a browser prompt at the top of the page to turn on your mic, please click "Allow."</h3>
+<p>From here on out, <strong>speak aloud</strong> the answer "yes" or "no" for each question. Click the "next" arrow when you are finished answering. There are 27 questions.</p>
 <div class="buttons">
 <a href = "#" class="primaryButton inlineButtons" onclick="showNumber();">Begin Survey</a>
 </div>
 </div>
 
 <div id = "number">
-  <p>Please state the number below.</p>
-  <h1>2</h1>
+<p>Please state the number below.</p>
+<h1 id="surveyNumber"></h1>
 <div class="buttons">
-  <a href = "#" onclick="showSurvey();" class="primaryLink" id="next">
+<a href = "#" onclick="showSurvey();" id="next">
 <svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
-  </a></div>
+</a></div>
 </div>
 
 <div id = "survey">
 <p id= "surveyContent"></p>
 <div id="spinner"></div>
-<a class="primaryLink" id ="next" href="#" onclick="nextElement();">
-  <svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
+<a id ="next" href="#" onclick="nextElement();">
+<svg id="nextArrow" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.8 134"><defs><style>.cls-1{fill:#e5f0cd;}</style></defs><title>next</title><path class="cls-1" d="M74.88,168L58.55,153.74l52.27-52.18L59.45,50.21,74.88,34h1q19.83,20.06,39.67,40.12c8.81,8.88,17.7,17.69,26.76,26.75-1.62,1.72-2.88,3.11-4.21,4.44q-29.4,29.41-58.8,58.82c-1.22,1.22-2.29,2.58-3.42,3.87h-1Z" transform="translate(-58.55 -34.05)"/></svg>
 
 </a>
 </div>
 
 <div id="finish">
-<a href = "#" id="pause" class="secondaryButton inlineButtons">Cancel</a>
-<a href = "#" id="download" class="primaryButton inlineButtons">Download Recording</a>
+<a href = "#" id="pause" class="secondaryButton inlineButtons" onclick="modal()">Cancel</a>
+<a href = "#" id="download" class="primaryButton inlineButtons" onclick="showEmail()">Download Recording</a>
+</div>
+
+
+<div id="email">
+<p>Please email your file to <a href="mailto:quantumsurveyYN@gmail.com?Subject=Survey%20Result" target="_top" class="primaryLink">quantumsurveyYN at gmail dot com</a>.</p>
 </div>
 </div>
+
+<!-- <button onclick="modal()">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+<!-- Modal content -->
+<div class="modal-content">
+<p>Are you sure you want to stop recording without saving?</p>
+<div class="modalbuttons"><a href = "#" class="secondaryButton inlineButtons" onclick="cancelModal()">No, go back</a>
+<a href = "index.html" class="primaryButton inlineButtons">Yes, leave page</a></div>
+</div>
+
+</div>
+
 
 <script>
 
@@ -95,6 +123,7 @@ var set =
 "Have you ever been to war?",
 "Do you regularly drink coffee?"];
 
+document.getElementById('surveyNumber').innerHTML = "2";
 
 var myIndex = 1;
 
@@ -116,6 +145,7 @@ $('#surveyContent').html(set[currentQuestion]);
 currentQuestion++;
 
 }
+
 
 function showInstructions(){
 
@@ -141,7 +171,24 @@ sin();
 
 };
 
+function modal() {
 
+document.getElementById('myModal').style.display = "block";
+document.getElementById('background').style.display = "block";
+
+}
+
+function showEmail() {
+document.getElementById('finish').style.display = "none";
+document.getElementById('email').style.display = "block";
+
+}
+
+function cancelModal() {
+  document.getElementById('myModal').style.display = "none";
+  document.getElementById('background').style.display = "none";
+
+}
 
 </script>
 </body>

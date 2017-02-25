@@ -58,11 +58,6 @@ transform: translate(-50%, -50%);
   display: none;
 }
 
-#number {
-
-text-align: center;
-}
-
 .buttons {
   text-align: center;
 }
@@ -99,6 +94,10 @@ text-align: center;
   width: 7%;
 }
 
+#email {
+
+  display: none;
+}
 div {
 
   margin-bottom: 25px;
@@ -108,7 +107,7 @@ div {
 #intro {
 
 
-font-size: 18px;
+font-size: 22px;
 font-weight: 300;
 }
 
@@ -128,6 +127,7 @@ margin:20px 20px;
 #stopButton {
 display:none;
 float: right;
+/*margin-left: 90%;*/
 
 
 }
@@ -186,13 +186,27 @@ text-decoration: none;
 
 }
 
-
-.primaryLink > a {
-
-font-size: 18px;
+.secondaryButtonBig {
+display: inline-block;
+margin: 50px 10px;
+border: 1px solid #E4F8CE;
+border-radius: 4px;
+background: #070022;
+padding: 25px;
 text-decoration: none;
-border-bottom: 1px solid #E4F8CE;
+font-size: 36px;
+
+}
+
+
+.primaryLink{
+
+/*font-size: 18px;*/
+text-decoration: none;
+border-bottom: 2px solid #E4F8CE;
 padding-bottom: 3px;
+font-weight: normal;
+font-size: 18px;
 
 }
 
@@ -232,6 +246,13 @@ display: block;
 #number {
 
   display:none;
+  text-align: center;
+}
+
+#surveyNumber {
+
+  margin-top: 50px;
+  font-size: 50px;
 }
 
 #survey{
