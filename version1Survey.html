@@ -66,6 +66,7 @@
 </div>
 
 <div id="finish">
+<div id="finishedWords">You're done!</div>
 <a href = "#" class="secondaryButton inlineButtons" onclick="modal()">Cancel Without Saving</a>
 <a href = "#" id="download" class="primaryButton inlineButtons" onclick="showEmail()">Download Recording</a>
 </div>
@@ -136,8 +137,10 @@ function nextElement(){
 if(currentQuestion == set.length){
 
   currentQuestion = 0;
-  document.getElementById('survey').innerHTML = "You're done!";
-  document.getElementById('survey').setAttribute('id', 'finishedWords');
+  // document.getElementById('survey').innerHTML = "You're done!";
+  // document.getElementById('survey').setAttribute('id', 'finishedWords');
+  // document.getElementById('finish').style.display = "block";
+  document.getElementById('survey').style.display = "none";
   document.getElementById('finish').style.display = "block";
 }
 
